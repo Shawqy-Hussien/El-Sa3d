@@ -6,11 +6,13 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1 --port 5173",
     "build": "tsc --noEmit && vite build",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
   },
   "dependencies": {
     "@elsa3d/shared-types": "*",
     "@elsa3d/shared-validation": "*",
+    "@elsa3d/ui": "^0.1.0",
     "lucide-react": "^1.66.0",
     "react": "19.3.0",
     "react-dom": "19.3.0",

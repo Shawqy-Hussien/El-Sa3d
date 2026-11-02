@@ -4,12 +4,12 @@ import { useSearchParams } from 'react-router-dom';
 import { Button, Input, Skeleton } from '@elsa3d/ui';
 import { api, type Brand, type Category, type Product } from '../api.js';
 import { useLocale } from '../i18n.js';
-import { ProductGrid, SectionHeading } from '../components/ProductGrid.js';
+import { ProductGrid } from '../components/ProductGrid.js';
 
 const types = ['MEDICINE', 'SUPPLEMENT', 'PERSONAL_CARE', 'MEDICAL_DEVICE', 'OTHER'] as const;
 
 export default function ProductListPage() {
-  const { t, locale } = useLocale();
+  const { t } = useLocale();
   const [searchParams, setSearchParams] = useSearchParams();
   const [categories, setCategories] = useState<Category[]>([]);
   const [brands, setBrands] = useState<Brand[]>([]);
@@ -104,9 +104,9 @@ export default function ProductListPage() {
           {error ? <div className="inline-state inline-state--error" role="alert"><span>{t('loadError')}</span><Button variant="secondary" onClick={() => setSearchParams(new URLSearchParams(searchParams))}>{t('retry')}</Button></div> : null}
           {loading ? <div className="product-grid"><Skeleton className="product-skeleton" lines={3} /><Skeleton className="product-skeleton" lines={3} /><Skeleton className="product-skeleton" lines={3} /></div> : <ProductGrid products={products} emptyMessage={t('emptyProducts')} />}
           {!loading && totalPages > 1 ? <nav className="pagination" aria-label={t('pagination')}>
-            <Button variant="secondary" size="small" disabled={page <= 1} onClick={() => changePage(page - 1)}>{locale === 'ar' ? t('nextPage') : t('previousPage')}</Button>
+            <Button variant="secondary" size="small" disabled={page <= 1} onClick={() => changePage(page - 1)}>{t('previousPage')}</Button>
             <span>{t('page')} <strong>{page}</strong> / {totalPages}</span>
-            <Button variant="secondary" size="small" disabled={page >= totalPages} onClick={() => changePage(page + 1)}>{locale === 'ar' ? t('previousPage') : t('nextPage')}</Button>
+            <Button variant="secondary" size="small" disabled={page >= totalPages} onClick={() => changePage(page + 1)}>{t('nextPage')}</Button>
           </nav> : null}
         </div>
       </div>

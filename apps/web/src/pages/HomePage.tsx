@@ -145,7 +145,7 @@ export default function HomePage() {
                 <article className="offer-card" key={offer.id}>
                   <span className="offer-card__icon"><BadgePercent size={25} aria-hidden="true" /></span>
                   <div className="offer-card__copy">
-                    <p className="offer-card__value">{offer.type === 'PERCENTAGE' ? `${formatCurrency(0).replace(/[\d.,\s]/g, '')} ${Number(offer.value)}%` : formatCurrency(offer.value)}</p>
+                    <p className="offer-card__value">{offer.type === 'PERCENTAGE' ? `${Number(offer.value)}%` : formatCurrency(offer.value)}</p>
                     <h3>{locale === 'ar' ? offer.nameAr : offer.name}</h3>
                     <p>{locale === 'ar' ? offer.descriptionAr : offer.description}</p>
                   </div>

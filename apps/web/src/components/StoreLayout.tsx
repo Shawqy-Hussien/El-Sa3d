@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, Languages, Menu, ShoppingBag, Sprout, UserRound, X } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Menu, ShoppingBag, Sprout, UserRound, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { api, type Category } from '../api.js';
@@ -6,6 +6,7 @@ import { useAuth } from '../auth.js';
 import { useCart } from '../cart.js';
 import { useLocale } from '../i18n.js';
 import { Navigation } from '@elsa3d/ui';
+import { LanguageSwitcher } from './LanguageSwitcher.js';
 import { SearchBox } from './SearchBox.js';
 
 function flattenCategories(categories: Category[]): Category[] {
@@ -57,10 +58,7 @@ export function StoreLayout() {
           </Link>
           <div className="site-header__search"><SearchBox /></div>
           <div className="site-header__actions">
-            <button type="button" className="language-switch" onClick={toggleLocale} aria-label={t('languageLabel')}>
-              <Languages size={18} aria-hidden="true" />
-              <span>{t('language')}</span>
-            </button>
+            <LanguageSwitcher />
             <button type="button" className="icon-button account-action" aria-label={t('account')} onClick={() => navigate(user ? '/account' : '/login')}>
               <UserRound size={20} aria-hidden="true" />
               <span>{t('account')}</span>

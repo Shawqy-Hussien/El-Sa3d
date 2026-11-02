@@ -7,11 +7,13 @@ import {
   type ReactNode,
 } from 'react';
 import { Toast } from '@elsa3d/ui';
+import { useLocale } from './i18n.js';
 
 type ToastMessage = { title: string; message?: string; kind: 'success' | 'error' | 'info' };
 const ToastContext = createContext<((message: ToastMessage) => void) | null>(null);
 
 export function ToastProvider({ children }: { children: ReactNode }) {
+  const { t } = useLocale();
   const [message, setMessage] = useState<ToastMessage | null>(null);
   const pushToast = useCallback((next: ToastMessage) => setMessage(next), []);
 
@@ -30,7 +32,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
             title={message.title}
             message={message.message}
             kind={message.kind}
-            dismissLabel="Dismiss notification"
+            dismissLabel={t('toastDismiss')}
             onDismiss={() => setMessage(null)}
           />
         </div>

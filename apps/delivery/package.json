@@ -1,0 +1,20 @@
+{
+  "name": "@elsa3d/delivery",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "expo-router/entry",
+  "scripts": {
+    "dev": "expo start --localhost",
+    "build": "expo export --platform web",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "expo": "~58.0.22",
+    "expo-router": "~58.0.29",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-native": "^0.88.1",
+    "react-native-web": "^0.21.4"
+  }
+}

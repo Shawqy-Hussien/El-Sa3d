@@ -1,0 +1,44 @@
+{
+  "name": "elsa3d-pharmacy-platform",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/config",
+    "packages/shared-types",
+    "packages/shared-validation",
+    "packages/ui",
+    "apps/api",
+    "apps/web",
+    "apps/admin",
+    "apps/pharmacist",
+    "apps/mobile",
+    "apps/delivery"
+  ],
+  "scripts": {
+    "build:packages": "npm run build --workspace @elsa3d/config && npm run build --workspace @elsa3d/shared-types && npm run build --workspace @elsa3d/shared-validation",
+    "build": "npm run db:generate && npm run build --workspaces --if-present",
+    "check": "npm run lint && npm run format:check && npm run typecheck && npm test",
+    "db:up": "docker compose -f infrastructure/docker/docker-compose.yml up -d postgres",
+    "db:down": "docker compose -f infrastructure/docker/docker-compose.yml down",
+    "db:generate": "npm run prisma:generate --workspace @elsa3d/api",
+    "db:migrate": "npm run prisma:migrate --workspace @elsa3d/api",
+    "dev": "npm run build:packages && npm run dev --workspace @elsa3d/web",
+    "format": "prettier --write \"**/*.{js,jsx,json,md,ts,tsx,yaml,yml}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,json,md,ts,tsx,yaml,yml}\"",
+    "lint": "eslint apps packages --max-warnings=0",
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run db:generate && npm run build:packages && npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "prettier": "^3.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=20.19.0",
+    "npm": ">=10.0.0"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "expo": {
+    "name": "El-Sa3d Mobile",
+    "slug": "elsa3d-mobile",
+    "scheme": "elsa3d",
+    "plugins": ["expo-router"],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}

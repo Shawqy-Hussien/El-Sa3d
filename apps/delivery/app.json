@@ -1,0 +1,14 @@
+{
+  "expo": {
+    "name": "El-Sa3d Delivery",
+    "slug": "elsa3d-delivery",
+    "scheme": "elsa3d-delivery",
+    "plugins": ["expo-router"],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}

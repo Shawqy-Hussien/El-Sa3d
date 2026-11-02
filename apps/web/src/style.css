@@ -1,0 +1,43 @@
+:root {
+  color: #183c31;
+  background: #f3f7f4;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  place-items: center;
+}
+
+main {
+  width: min(90vw, 680px);
+  padding: 48px;
+  border-inline-start: 4px solid #176b4d;
+  background: #fff;
+  box-shadow: 0 16px 48px rgb(24 60 49 / 8%);
+}
+
+.eyebrow {
+  color: #176b4d;
+  font: 700 12px/1.4 Arial, sans-serif;
+  letter-spacing: 0.08em;
+}
+
+h1 {
+  margin: 24px 0 8px;
+  font-size: 44px;
+}
+
+.status {
+  color: #53675e;
+  font: 16px/1.6 Arial, sans-serif;
+}
